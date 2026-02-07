@@ -29,7 +29,6 @@
             file                 (->> tempfile (io/reader) (csv/read-csv))
             planned?             (str/includes? (first file) "planned")
             data                 (file->data file planned?)
-            _ (println "DATAAAA:" data)
             response             (when (not-empty data)
                                    (if planned?
                                      (db-activities/import-csv ds {:type "planned" :values data})
@@ -43,11 +42,17 @@
    {:name ::get-activities
     :enter
     (fn [ctx]
-      (let [{:keys [ds request]} ctx]
+      (let [{:keys [ds request]} ctx
+            query-params         (:query-params request)
+            response             (db-activities/get-activities
+                                  ds
+                                  {:date          (->> query-params :date (java.sql.Date/valueOf))
+                                   :activity      (:activity query-params)
+                                   :activity-type (:activity-type query-params)})]
+        (if response
+          (assoc ctx :response {:status 200 :body response})
+          (assoc ctx :response {:status 500 :body (str request)}))))}))
 
-        (assoc ctx :response {:status 200 :body [{:type "some"
-                                                  :planned "other"}]})))}))
-(java.sql.Date/valueOf "2025-01-07")
 (comment
   (client/post
    "http://localhost:8080/activities/import"
@@ -60,5 +65,9 @@
    {:multipart [{:name         "file"
                  :content      (clojure.java.io/file "../ruan-pasta-2026-02-05_planned.csv")
                  :content-type "text/csv"}]})
+
+  (client/get
+   "http://localhost:8080/activities?date=2025-07-19&activity-type=Building&activity=Walling")
+  
 
   nil)
