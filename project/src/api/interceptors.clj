@@ -3,7 +3,6 @@
 (defn inject-ds-interceptor [ds]
   {:name ::inject-ds
    :enter (fn [ctx]
-            (println "Adding the datasource into ctx" ds)
             (assoc ctx :ds ds))})
 
 (def error-interceptor

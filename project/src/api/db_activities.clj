@@ -25,7 +25,7 @@
          tx
          sql
          values
-         {:batch-size 500}))
+         {:batch-size 1000}))
       (catch Exception e
         (log e)))))
 

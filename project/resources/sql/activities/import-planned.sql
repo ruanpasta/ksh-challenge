@@ -1,6 +1,6 @@
 INSERT INTO api.activities (
 	hash_id,
-  date,
+  created_at,
   activity,
   activity_type,
   unit,
