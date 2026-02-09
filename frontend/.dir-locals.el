@@ -1,0 +1,5 @@
+((nil . ((cider-clojure-cli-global-options . "-A:nrepl:shadow-cljs")
+         (cider-preferred-build-tool       . clojure-cli)
+         (cider-default-cljs-repl          . custom)
+         (cider-custom-cljs-repl-init-form . "(do  (require 'web.dev.server)
+                                                   (web.dev.server/start-server!))"))))

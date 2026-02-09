@@ -1,0 +1,21 @@
+{:deps {:aliases [:shadow-cljs]}
+
+ :dev-http {8000 "public"}
+
+ :builds
+ {:web
+  {:target     :browser
+   :output-dir "public/js"
+   :asset-path "/js"
+
+   :init-ns   web.dev.server
+
+   :devtools
+   {}
+
+   :dev
+   {}
+      
+   :modules
+   {:main
+    {:init-fn web.core/run}}}}}
