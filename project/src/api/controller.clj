@@ -65,13 +65,13 @@
   (client/post
    "http://localhost:8080/activities/import"
    {:multipart [{:name         "file"
-                 :content      (io/file "../ruan-pasta-2026-02-05_executed.csv")
+                 :content      (io/file "../challenge/ruan-pasta-2026-02-05_executed.csv")
                  :content-type "text/csv"}]})
 
   (client/post
    "http://localhost:8080/activities/import"
    {:multipart [{:name         "file"
-                 :content      (io/file "../ruan-pasta-2026-02-05_planned.csv")
+                 :content      (io/file "../challenge/ruan-pasta-2026-02-05_planned.csv")
                  :content-type "text/csv"}]})
 
   (client/get
