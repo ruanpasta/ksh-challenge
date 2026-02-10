@@ -91,3 +91,5 @@ For the backend we have the things that I didn't do, but:
 Thank you guys for this oportunity.
 I enjoy to work on this project.
 Work with Clojure it's always a great development experience.
+
+*Motivational phrase:* /Naruto can be rough sometimes./
