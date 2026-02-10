@@ -14,7 +14,7 @@
 
 * Running the projects
 
-If want to run all the applications, you could use:
+If you want to run all the applications, you could use:
 
 #+begin_src bash
   docker compose up -d
@@ -43,9 +43,9 @@ For the backend we have two options, I recomend via cider or directly from the t
   clojure -M:start
 #+end_src 
 
-To start via cider, you'll need to run the =cider-jack-in-clj= inside a *.clj* file inside the *backend* folder.
+To start via cider, you'll need to run the =cider-jack-in-clj= inside a *.clj* file into the *backend* folder.
 I recomend to run into the /deps.edn/ or /backend/src/api/core.clj/.
-After that load the file with =<C-c C-k>= and eval the function *(start)* localized into at the end off the file inside the *comment* function.
+After that load the file with =<C-c C-k>= and do an eval on the function *(start)* localized at the end off the file inside the *comment* function.
 
 ** Frontend
 
@@ -64,12 +64,12 @@ Once we have all applications running, it's time to test and validate the challe
 *Important:* Once I don't create a pagination for the *list activities endpoint*, I set a limit to 25 Items in the backend response.
 If you want to see more data, you can change the limit into the file /backend/resources/sql/activities/list.sql/. Don't forget to restart the application.
 
-Feel free to use any tool to see the data. To simplify your life, you can find the database conection info in postgres-18 environments into the docker-compose.yml.
+Feel free to use any tool to see the data. To simplify your life, you can find the database conection info in *postgres-18 environments* into the *docker-compose.yml*.
 
 * Improvments
 
 How I sad before, I invested more time working on the backend project.
-You'll realize that with some good points to improve in the frontend app, like.
+You'll realize that have some good points to improve in the frontend app, like.
 - Everything! kkkk just kiding.
 - Create a reusable components or use a external library.
 - Use reframe for state management, if the App grow.
@@ -82,7 +82,7 @@ You'll realize that with some good points to improve in the frontend app, like.
 
 For the backend we have the things that I didn't do, but:
 - Environment variables (aero?)
-- Use malli to validate the what enter and leave. It's good to have a better feedback.
+- Use malli to validate what enter and leave on each route with interceptors. It's good to have a better feedback.
 - More tests. Maybe another tool to test the multipart data. I use client/http.
 - Maybe I did an over egeniering in for this challenge.
 
