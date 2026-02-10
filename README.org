@@ -59,6 +59,16 @@ For the frontend we also have the both options via terminal or =cider-jack-in-cl
 
 To start via Cider, you can run =cider-jack-in-cljs= inside the /deps.edn/ or /frontend/src/web/core.cljs/.
 
+* Tests
+
+Only backend have implmented tests. You can use cider or the command bellow to run:
+
+#+begin_src bash
+  clj -M:test
+  # or
+  clojure -M:test
+#+end_src
+
 * Nice to know
 
 Once we have all applications running, it's time to test and validate the challenge. Feel free to import your files and filter some data.
