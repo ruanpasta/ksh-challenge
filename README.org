@@ -86,6 +86,8 @@ For the backend we have the things that I didn't do, but:
 - More tests. Maybe another tool to test the multipart data. I use client/http.
 - Maybe I did an over egeniering in for this challenge.
 
+For both projects, I simplified the folder structure to make file navigation easier.
+
 * Greetings
 
 Thank you guys for this oportunity.
