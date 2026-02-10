@@ -16,4 +16,48 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+	gap: 1rem;
+}
+
+.import-button {
+		all: unset;
+		background: #32a852;
+		color: #f0f6fc;
+		padding: 0.625rem 1rem;
+		font-size: 1.5rem;
+		border-radius: 8px;
+		cursor: pointer;
+}
+
+.import-button:hover {
+		background: #228f40;
+}
+
+.import-button:active {
+		background: #147830;
+}
+
+.pretty-table {
+		border: 1px solid #6666;
+}
+
+.pretty-table th {
+		border: 1px solid #666;
+		border-collapse: collapse;
+}
+
+.pretty-table td {
+		padding: 0 1rem;
+}
+
+.form {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+}
+
+.input {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
 }

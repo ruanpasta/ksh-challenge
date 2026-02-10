@@ -28,7 +28,9 @@
     :enter
     (fn [ctx]
       (let [{:keys [ds request]} ctx
-            tempfile             (get-in request [:multipart-params "file" :tempfile])
+            tempfile             (or
+                                  (get-in request [:multipart-params "file" :tempfile])
+                                  (get-in request [:params "file" :tempfile]))
             file                 (->> tempfile (io/reader) (csv/read-csv))
             planned?             (str/includes? (first file) "planned")
             data                 (file->data file planned?)
@@ -58,7 +60,7 @@
                                    :activity      (:activity query-params)
                                    :activity-type (:activity-type query-params)})]
         (if response
-          (assoc ctx :response {:status 200 :body response})
+          (assoc ctx :response {:status 200 :body (pr-str response) :headers {"Content-Type" "application/edn"}})
           (assoc ctx :response {:status 500 :body (str request)}))))}))
 
 (comment

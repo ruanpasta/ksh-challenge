@@ -16,12 +16,7 @@
       (.migrate)))
 
 (defn clean
-  [{:keys [url user password locations schema]
-    :or   {url (:url config/default)
-           user (:user config/default)
-           password (:password config/default)
-           locations (:locations config/default)}}]
-  (println "cleaning DB")
+  []
   (-> (Flyway/configure)
       (.dataSource (:url config/default)
                    (:user config/default)

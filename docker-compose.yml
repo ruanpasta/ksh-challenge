@@ -1,0 +1,35 @@
+services:
+  postgres-18:
+    image: postgres:18
+    container_name: pg18-volis-takehome
+    # restart: always
+    environment:
+      POSTGRES_USER: api_user
+      POSTGRES_PASSWORD: api_pass
+      POSTGRES_DB: api_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg18-api-data:/var/lib/postgresql
+    network_mode: "host"
+
+  backend:
+    build: ./backend
+    environment:
+      - DB_URL=jdbc:postgresql://localhost:5432/api_db
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8080:8080"
+    network_mode: "host"
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8000:8000"
+    network_mode: "host"
+    depends_on:
+      - backend
+
+volumes:
+  pg18-api-data:

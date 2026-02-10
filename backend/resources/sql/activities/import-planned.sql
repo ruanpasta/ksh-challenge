@@ -10,4 +10,5 @@ INSERT INTO api.activities (
 VALUES (?, ?, ?, ?, ?, ?, ?)
 ON CONFLICT (hash_id)
 DO UPDATE
-SET planned_amount = EXCLUDED.planned_amount;
+SET planned_amount = EXCLUDED.planned_amount,
+ 		updated_at = NOW();
