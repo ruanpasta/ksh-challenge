@@ -1,7 +1,6 @@
 (ns web.core
   (:require-macros [cljs.core.async.macros :refer [go]])
   (:require [reagent.dom.client :as rdomc]
-            [web.file-input :refer [file-import-button]]
             [web.service :as service]
             [reagent.core :as r]
             [web.state :refer [app-state]]
