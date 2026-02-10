@@ -20,6 +20,8 @@ If you want to run all the applications, you could use:
   docker compose up -d
 #+end_src
 
+_Don't forget to wait a minute to both applications start up._
+
 Probably it's enough.
 
 /This Docker configuration it's not to production or development environments. It's just to helps in the first start up for tests and validation./
