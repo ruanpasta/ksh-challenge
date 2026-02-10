@@ -1,4 +1,93 @@
 #+title: Ruan Pasta Volis Challenge
 #+date: 2026-02-09
 
+/This is the challenge of Volis, you can see more information about it in the folder "challenge"./
+
 * Introduction
+
+ Hello, it's nice to see you here!
+ My name is Ruan Pasta, I've been working as a frontend developer for 8 years.
+ I have some knowledge with Backend, DevOps, Mobile and UI Prototyping but I'm better with frontend. kkkk
+
+ For this challenge I created two applications, a Backend with Clojure and Frontend with ClojureScript.
+ I invest more time working on Backend once I realize that is the most important part for this challenge.
+
+* Running the projects
+
+If want to run all the applications, you could use:
+
+#+begin_src bash
+  docker compose up -d
+#+end_src
+
+Probably it's enough.
+
+/This Docker configuration it's not to production or development environments. It's just to helps in the first start up for tests and validation./
+/Disclaimer: I know that I have some hardcode environments in Both applications. It's something to improve some day, maybe./
+
+** Database
+
+To start up only the database you should run:
+
+#+begin_src bash
+  docker compose up postgres-18 -d
+#+end_src
+
+** Backend
+
+For the backend we have two options, I recomend via cider or directly from the terminal:
+
+#+begin_src bash
+  clj -M:start
+  # or
+  clojure -M:start
+#+end_src 
+
+To start via cider, you'll need to run the =cider-jack-in-clj= inside a *.clj* file inside the *backend* folder.
+I recomend to run into the /deps.edn/ or /backend/src/api/core.clj/.
+After that load the file with =<C-c C-k>= and eval the function *(start)* localized into at the end off the file inside the *comment* function.
+
+** Frontend
+
+For the frontend we also have the both options via terminal or =cider-jack-in-cljs=.
+
+#+begin_src bash
+  npx shadow-cljs watch :web
+#+end_src 
+
+To start via Cider, you can run =cider-jack-in-cljs= inside the /deps.edn/ or /frontend/src/web/core.cljs/.
+
+* Nice to know
+
+Once we have all applications running, it's time to test and validate the challenge. Feel free to import your files and filter some data.
+
+*Important:* Once I don't create a pagination for the *list activities endpoint*, I set a limit to 25 Items in the backend response.
+If you want to see more data, you can change the limit into the file /backend/resources/sql/activities/list.sql/. Don't forget to restart the application.
+
+Feel free to use any tool to see the data. To simplify your life, you can find the database conection info in postgres-18 environments into the docker-compose.yml.
+
+* Improvments
+
+How I sad before, I invested more time working on the backend project.
+You'll realize that with some good points to improve in the frontend app, like.
+- Everything! kkkk just kiding.
+- Create a reusable components or use a external library.
+- Use reframe for state management, if the App grow.
+- Use reitit for routes
+- Use taliwindCSS for styles could be nice.
+- Create a build config for production and improve the development config.
+- Environment variables
+- Tests
+- etc...
+
+For the backend we have the things that I didn't do, but:
+- Environment variables (aero?)
+- Use malli to validate the what enter and leave. It's good to have a better feedback.
+- More tests. Maybe another tool to test the multipart data. I use client/http.
+- Maybe I did an over egeniering in for this challenge.
+
+* Greetings
+
+Thank you guys for this oportunity.
+I enjoy to work on this project.
+Work with Clojure it's always a great development experience.
